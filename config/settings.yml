@@ -1,0 +1,19 @@
+mongodb:
+  # TODO: allow connecting to multiple hosts
+  host: localhost
+  port: 27017
+  database: everbridge_sync
+  username: everbridge_sync
+  password: # set in settings.local.yml
+
+oracle:
+  connection_string: # set in settings.local.yml
+
+csv:
+  path: "/tmp/"
+  filename_prefix: "everbridge_export"
+  defaults:
+    organization: Biola University
+    country: United States
+    role: Contact
+    language: "English (US)"

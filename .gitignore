@@ -1,0 +1,4 @@
+.bundle
+/config/settings.local.yml
+/vendor/bundle
+/tmp
