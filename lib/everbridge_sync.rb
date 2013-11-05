@@ -1,5 +1,6 @@
 module EverbridgeSync
   require './lib/everbridge'
+  require './lib/everbridge_sync/group_rules'
   require './lib/everbridge_sync/mongo_db'
   require './lib/everbridge_sync/oracle'
   require './lib/everbridge_sync/synchronizer'

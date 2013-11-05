@@ -11,7 +11,7 @@ module EverbridgeSync
           last_name   = row['LNAME']
           email       = row['EMAIL']
           cell        = row['CELL']
-          groups      = [] # TODO
+          groups      = GroupRules.new(affiliation: row['AFFILIATION'], housing: row['HOUSING_1']).results
 
           collection << Everbridge::Contact.new(id_number, first_name, last_name, email, cell, groups)
         end
