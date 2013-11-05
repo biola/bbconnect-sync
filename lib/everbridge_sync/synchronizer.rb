@@ -21,25 +21,27 @@ module EverbridgeSync
 
     def append_new_contacts_to_csv!
       comparer.added.each do |contact|
-        csv.add contact.csv_attributes
+        csv.add(contact.csv_attributes) if valid? contact
       end
     end
 
     def append_updated_contacts_to_csv!
       comparer.updated.each do |updated_contact|
-        outdated_contact = @stored_contacts[updated_contact]
-        old_groups = outdated_contact.groups - updated_contact.groups
+        if valid? updated_contact
+          outdated_contact = @stored_contacts[updated_contact]
+          old_groups = outdated_contact.groups - updated_contact.groups
 
-        attributes = updated_contact.csv_attributes
-        attributes.merge! remove_groups: old_groups
+          attributes = updated_contact.csv_attributes
+          attributes.merge! remove_groups: old_groups
 
-        csv.update attributes
+          csv.update attributes
+        end
       end
     end
 
     def append_removed_contacts_to_csv!
       comparer.removed.each do |contact|
-        csv.remove contact.csv_attributes
+        csv.remove contact.csv_attributes if valid? contact
       end
     end
 
@@ -49,6 +51,16 @@ module EverbridgeSync
       timestamp = Time.now.to_i
 
       "#{path}/#{prefix}-#{timestamp}.csv"
+    end
+
+    def valid?(contact)
+      if Everbridge::Validator.valid? contact
+        true
+      else
+        # TODO: send email
+
+        false
+      end
     end
   end
 end
