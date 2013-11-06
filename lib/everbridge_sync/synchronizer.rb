@@ -41,7 +41,7 @@ module EverbridgeSync
 
     def append_removed_contacts_to_csv!
       comparer.removed.each do |contact|
-        csv.remove contact.csv_attributes if valid? contact
+        csv.remove contact.csv_attributes
       end
     end
 
@@ -57,7 +57,7 @@ module EverbridgeSync
       if Everbridge::Validator.valid? contact
         true
       else
-        # TODO: send email
+        InvalidCellEmail.new(contact).send!
 
         false
       end

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'mail'
 gem 'mongodb'
 gem 'rails_config'
 gem 'ruby-oci8'

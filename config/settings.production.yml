@@ -1,2 +1,7 @@
 mongodb:
   host: mongo1.prod.biola.edu
+
+email:
+  delivery_method: smtp
+  options:
+    address: 'cgp.biola.edu'

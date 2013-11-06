@@ -10,6 +10,7 @@ oracle:
   connection_string: # set in settings.local.yml
 
 csv:
+  # TODO: allow multiple paths
   path: "/tmp/"
   filename_prefix: "everbridge_export"
   defaults:
@@ -17,3 +18,11 @@ csv:
     country: United States
     role: Contact
     language: "English (US)"
+
+# See http://rdoc.info/github/mikel/mail/Mail#defaults-class_method
+email:
+  from: no-reply@biola.edu
+  delivery_method: test
+  options: {}
+  invalid_cell:
+    subject: "Your cell phone number in my.biola is invalid"
