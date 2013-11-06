@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe EverbridgeSync::InvalidCellEmail do
-  let(:email) { EverbridgeSync::InvalidCellEmail.new(new_contact) }
+describe EverbridgeSync::Email::InvalidCell do
+  let(:email) { EverbridgeSync::Email::InvalidCell.new(new_contact) }
 
   before do
     Mail.defaults do

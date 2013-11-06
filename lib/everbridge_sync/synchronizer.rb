@@ -57,7 +57,7 @@ module EverbridgeSync
       if Everbridge::Validator.valid? contact
         true
       else
-        InvalidCellEmail.new(contact).send!
+        Email::InvalidCell.new(contact).send!
 
         false
       end
