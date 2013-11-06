@@ -31,7 +31,12 @@ module Everbridge
     def is?(other)
       return false unless other.respond_to? :id_number
 
-      other.id_number == id_number
+      other.id_number.to_i == id_number.to_i
+    end
+    alias :eql? :is?
+
+    def hash
+      id_number.to_i.hash
     end
 
     def ==(other)

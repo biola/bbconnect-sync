@@ -2,8 +2,8 @@ module Everbridge
   class ContactCollection
     attr_accessor :contacts
 
-    def initialize
-      @contacts = []
+    def initialize(contacts = [])
+      @contacts = Array(contacts)
     end
 
     def <<(contact)
@@ -25,9 +25,7 @@ module Everbridge
         raise ArgumentError, "other_collection must be a #{self.class}"
       end
 
-      self.contacts.reject do |contact|
-        other_collection.includes? contact
-      end
+      contacts - other_collection.contacts
     end
 
     def self.all
