@@ -32,6 +32,11 @@ describe Everbridge::Contact do
     end
   end
 
+  describe '#hash' do
+    let(:id_number) { 42 }
+    its(:hash) { should eql 42.hash }
+  end
+
   describe '#==' do
     context 'when not an Everbridge::Contact' do
       let(:other) { Object.new }

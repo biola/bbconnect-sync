@@ -28,6 +28,9 @@ module Everbridge
       {external_id: id_number, first_name: first_name, last_name: last_name, email_address: email, mobile_phone: cell, groups: groups}
     end
 
+    # I'm preferring is? over eql? because I feel it better represents what we're checking.
+    # Which is that they have the same id_numebr not that they are the same object or even
+    # have the same attributes. But we're also using it for eql? for simple array comparisons.
     def is?(other)
       return false unless other.respond_to? :id_number
 
