@@ -12,7 +12,7 @@ module Everbridge
     end
 
     def updated
-      new_collection.contacts.select do |new_contact|
+      @updated ||= new_collection.contacts.select do |new_contact|
         old_contact = old_collection[new_contact]
 
         old_contact && old_contact != new_contact
@@ -20,7 +20,7 @@ module Everbridge
     end
 
     def removed
-      @added ||= old_collection - new_collection
+      @removed ||= old_collection - new_collection
     end
   end
 end
