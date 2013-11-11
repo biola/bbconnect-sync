@@ -13,6 +13,7 @@ module EverbridgeSync
       append_updated_contacts_to_csv!
       append_removed_contacts_to_csv!
       csv.save!(csv_file_path)
+      updated_contacts.each(&:store!)
     end
 
     private

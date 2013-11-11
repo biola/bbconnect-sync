@@ -16,6 +16,12 @@ module Everbridge
       end
     end
 
+    def each
+      contacts.each do |contact|
+        yield contact
+      end
+    end
+
     def includes?(contact)
       !!self[contact]
     end
