@@ -7,7 +7,7 @@ describe EmailLog do
   let(:db) { MongoDB.new() }
 
   before do
-    db[:email_log]. remove()
+    db[:email_log].remove()
   end
 
   describe ".log" do

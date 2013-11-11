@@ -26,3 +26,4 @@ email:
   options: {}
   invalid_cell:
     subject: "Your cell phone number in my.biola is invalid"
+  once_every: 30 # days

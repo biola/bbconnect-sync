@@ -16,10 +16,25 @@ module EverbridgeSync
       end
 
       def send!
-        email.deliver!
+        unless recently_sent?
+          email.deliver!
+          EmailLog.log(self)
+        end
       end
 
       private
+
+      def recently_sent?
+        last_email_at = EmailLog.last_email_at(type, recipient)
+        return false if last_email_at.nil?
+
+        last_email_at >= cut_off_date
+      end
+
+      def cut_off_date
+        # Converting days into seconds
+        Time.now - Settings.email.once_every * 24 * 60 * 60
+      end
 
       def email
         email_address = self.contact.email
