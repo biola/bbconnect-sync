@@ -11,6 +11,10 @@ module EverbridgeSync
         @contact = contact
       end
 
+      def recipient
+        contact.email
+      end
+
       def send!
         email.deliver!
       end
