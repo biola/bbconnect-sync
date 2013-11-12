@@ -30,7 +30,7 @@ D,John,,Doe,,Biola University,,,,,,,United States,Contact,English (US),1,,,,,,,,
 EOD
     end
 
-    before { synchronizer.stub(:csv_file_path).and_return file_path }
+    before { synchronizer.stub(:csv_file_paths).and_return [file_path] }
 
     let!(:result) { synchronizer.sync! }
 
