@@ -67,6 +67,12 @@ module Everbridge
       db[:contacts].remove id_number: id_number
     end
 
+    def self.delete_all!
+      db = EverbridgeSync::MongoDB.new
+
+      db[:contacts].remove
+    end
+
     def to_s
       "#{first_name} #{last_name}"
     end
