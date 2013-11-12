@@ -19,7 +19,7 @@ describe EverbridgeSync::Synchronizer do
     EverbridgeSync::Oracle.any_instance.stub(:contacts).and_return(updated_contacts)
   end
 
-  describe '#perform' do
+  describe '#sync!' do
     let(:file_path) { '/tmp/everbridge_sync_test.csv' }
     let(:csv_content) do
 <<EOD

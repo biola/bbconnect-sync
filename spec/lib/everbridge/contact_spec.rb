@@ -65,5 +65,14 @@ describe Everbridge::Contact do
     after { delete_all_contacts! }
   end
 
+  describe '#delete!' do
+    let(:id_number) { rand(1..9999999) }
+    before { contact.store! }
+
+    it 'deletes from the database' do
+      expect{contact.delete!}.to change{EverbridgeSync::MongoDB.new[:contacts].find(id_number: id_number).count}.from(1).to 0
+    end
+  end
+
   its(:to_s) { should eql "John Doe"}
 end

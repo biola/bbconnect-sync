@@ -6,15 +6,17 @@ module EverbridgeSync
       @conditions = []
       @groups = []
 
-      attributes.each do |attribute, value|
+      attributes.each do |attribute, values|
+        values = Array(values)
+
         match_condition = ->(*compare_to) {
           @conditions << Array(compare_to).flatten.any? do |cmp|
-            value.to_s =~ /^#{cmp}/i
+            values.any?{ |value| value.to_s =~ /^#{cmp}/i }
           end
         }
 
         empty_condition = -> {
-          @conditions << (value.to_s.strip == '')
+          @conditions << (values.join.strip == '')
         }
 
         define_singleton_method("if_#{attribute}_matches", match_condition)

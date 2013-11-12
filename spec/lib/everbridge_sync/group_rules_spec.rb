@@ -19,4 +19,9 @@ describe EverbridgeSync::GroupRules do
     let(:attributes) { {affiliation: 'Student', housing: nil} }
     it { should eql ['Students', 'Students - off campus'] }
   end
+
+  context 'with Employee and Student affiliation and no housing' do
+    let(:attributes) { {affiliation: ['Employee', 'Student'], housing: nil} }
+    it { should eql ['Employees', 'Students', 'Students - off campus'] }
+  end
 end
