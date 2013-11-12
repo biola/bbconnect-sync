@@ -11,7 +11,8 @@ oracle:
 
 csv:
   # TODO: allow multiple paths
-  path: "/tmp/"
+  paths:
+    - "/tmp/"
   filename_prefix: "everbridge_export"
   defaults:
     organization: Biola University

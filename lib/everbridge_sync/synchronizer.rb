@@ -12,8 +12,7 @@ module EverbridgeSync
       append_new_contacts_to_csv!
       append_updated_contacts_to_csv!
       append_removed_contacts_to_csv!
-      csv.save!(csv_file_path)
-      updated_contacts.each(&:store!)
+      save_csvs!
     end
 
     private
@@ -22,7 +21,10 @@ module EverbridgeSync
 
     def append_new_contacts_to_csv!
       comparer.added.each do |contact|
-        csv.add(contact.csv_attributes) if valid? contact
+        if valid? contact
+          csv.add(contact.csv_attributes)
+          contact.store!
+        end
       end
     end
 
@@ -36,6 +38,7 @@ module EverbridgeSync
           attributes.merge! remove_groups: old_groups
 
           csv.update attributes
+          updated_contact.store!
         end
       end
     end
@@ -43,15 +46,24 @@ module EverbridgeSync
     def append_removed_contacts_to_csv!
       comparer.removed.each do |contact|
         csv.remove contact.csv_attributes
+        contact.delete!
       end
     end
 
-    def csv_file_path
-      path      = Settings.csv.path
+    def save_csvs!
+      csv_file_paths.each do |path|
+        csv.save!(path)
+      end
+    end
+
+    def csv_file_paths
+      paths     = Settings.csv.paths
       prefix    = Settings.csv.filename_prefix
       timestamp = Time.now.to_i
 
-      "#{path}/#{prefix}-#{timestamp}.csv"
+      paths.map do |path|
+        "#{path}/#{prefix}-#{timestamp}.csv"
+      end
     end
 
     def valid?(contact)
