@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'blazing'
+gem 'biola_deploy'
 gem 'mail'
 gem 'mongodb'
 gem 'rails_config'
