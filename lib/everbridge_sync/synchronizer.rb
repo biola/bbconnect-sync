@@ -2,10 +2,6 @@ module EverbridgeSync
   class Synchronizer
 
     def initialize
-      @stored_contacts = Everbridge::ContactCollection.all
-      @updated_contacts = Oracle.new.contacts
-      @csv = Everbridge::CSV.new
-      @comparer = Everbridge::ContactCollectionComparer.new(stored_contacts, updated_contacts)
     end
 
     def sync!
@@ -17,7 +13,21 @@ module EverbridgeSync
 
     private
 
-    attr_accessor :stored_contacts, :updated_contacts, :csv, :comparer
+    def stored_contacts
+      @stored_contacts ||= Everbridge::ContactCollection.all
+    end
+
+    def updated_contacts
+      @updated_contacts ||= Oracle.new.contacts
+    end
+
+    def csv
+      @csv ||= Everbridge::CSV.new
+    end
+
+    def comparer
+      @comparer ||= Everbridge::ContactCollectionComparer.new(stored_contacts, updated_contacts)
+    end
 
     def append_new_contacts_to_csv!
       comparer.added.each do |contact|
