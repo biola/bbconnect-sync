@@ -9,6 +9,9 @@ mongodb:
 oracle:
   connection_string: # set in settings.local.yml
 
+redis:
+  url: "redis://localhost:6379/0"
+
 schedule:
   hour: 5
 

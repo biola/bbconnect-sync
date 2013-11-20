@@ -5,3 +5,6 @@ email:
   delivery_method: smtp
   options:
     address: 'cgp.biola.edu'
+
+redis:
+  url: "redis://redis1.prod.biola.edu:6379/0"
