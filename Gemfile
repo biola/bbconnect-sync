@@ -8,6 +8,7 @@ gem 'rails_config'
 gem 'rake'
 gem 'ruby-oci8'
 gem 'sidekiq'
+gem 'sidetiq'
 
 group :development do
   gem 'pry'

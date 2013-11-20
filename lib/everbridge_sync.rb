@@ -1,12 +1,4 @@
 module EverbridgeSync
-  require './lib/everbridge'
-  require './lib/everbridge_sync/email'
-  require './lib/everbridge_sync/email_log'
-  require './lib/everbridge_sync/group_rules'
-  require './lib/everbridge_sync/mongo_db'
-  require './lib/everbridge_sync/oracle'
-  require './lib/everbridge_sync/synchronizer'
-  require './lib/everbridge_sync/worker'
 
   def self.initialize!
     require 'rails_config'
@@ -19,6 +11,15 @@ module EverbridgeSync
     Mail.defaults do
       delivery_method Settings.email.delivery_method, address: Settings.email.options
     end
+
+    require './lib/everbridge'
+    require './lib/everbridge_sync/email'
+    require './lib/everbridge_sync/email_log'
+    require './lib/everbridge_sync/group_rules'
+    require './lib/everbridge_sync/mongo_db'
+    require './lib/everbridge_sync/oracle'
+    require './lib/everbridge_sync/synchronizer'
+    require './lib/everbridge_sync/worker'
 
     true
   end
