@@ -9,10 +9,10 @@ gem 'rake'
 gem 'ruby-oci8'
 gem 'sidekiq'
 gem 'sidetiq'
+gem 'progress_bar'
 
 group :development do
   gem 'pry'
-  gem 'progress_bar'
 end
 
 group :test do
