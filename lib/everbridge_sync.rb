@@ -10,7 +10,7 @@ module EverbridgeSync
     RailsConfig.load_and_set_settings('./config/settings.yml', "./config/settings.#{env}.yml", './config/settings.local.yml')
 
     Mail.defaults do
-      delivery_method Settings.email.delivery_method, address: Settings.email.options
+      delivery_method Settings.email.delivery_method, Settings.email.options.to_hash
     end
 
     Sidekiq.configure_server do |config|
