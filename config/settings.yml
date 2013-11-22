@@ -16,9 +16,8 @@ schedule:
   hour: 5
 
 csv:
-  # TODO: allow multiple paths
   paths:
-    - "/tmp/"
+    - "./files"
   filename_prefix: "everbridge_export"
   defaults:
     organization: Biola University
