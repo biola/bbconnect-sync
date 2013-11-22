@@ -3,6 +3,7 @@ module EverbridgeSync
   def self.initialize!
     require 'rails_config'
     require 'mail'
+    require 'sidekiq'
 
     env = ENV['RACK_ENV'] || ENV['RAILS_ENV'] || :development
 
