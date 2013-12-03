@@ -10,9 +10,7 @@ module EverbridgeSync
       daily.hour_of_day(Settings.schedule.hour)
     end
     # This job should only run once
-    sidekiq_options({
-      unique: true
-    })
+    sidekiq_options unique: true
 
     def initialize
       @synchronizer = EverbridgeSync::Synchronizer.new
