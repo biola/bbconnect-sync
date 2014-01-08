@@ -8,7 +8,6 @@ module EverbridgeSync
       append_new_contacts_to_csv!
       append_updated_contacts_to_csv!
       append_removed_contacts_to_csv!
-      save_csvs!
     end
 
     private
@@ -22,7 +21,7 @@ module EverbridgeSync
     end
 
     def csv
-      @csv ||= Everbridge::CSV.new
+      @csv ||= Everbridge::CSV.new(csv_file_paths)
     end
 
     def comparer
@@ -57,12 +56,6 @@ module EverbridgeSync
       comparer.removed.each do |contact|
         csv.remove contact.csv_attributes
         contact.delete!
-      end
-    end
-
-    def save_csvs!
-      csv_file_paths.each do |path|
-        csv.save!(path)
       end
     end
 

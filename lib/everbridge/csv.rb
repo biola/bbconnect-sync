@@ -145,8 +145,10 @@ module Everbridge
 
     attr_reader :rows
 
-    def initialize
+    def initialize(file_paths)
+      @file_paths = Array(file_paths)
       @rows = []
+      @headers_written = false
     end
 
     def <<(fields)
@@ -160,6 +162,7 @@ module Everbridge
         value.respond_to?(:join) ? value.join('|') : value
       end
 
+      append_to_files! row
       @rows << row
     end
 
@@ -175,19 +178,24 @@ module Everbridge
       self << fields.merge(action: REMOVE)
     end
 
-    def save!(file_path)
-      ::CSV.open(file_path, 'w') do |csv|
-        csv << COLUMNS
+    private
 
-        @rows.each do |row|
+    attr_reader :file_paths
+
+    # It's probably inefficient to write to the file each time
+    # but it's more idempotent and error proof
+    def append_to_files!(row)
+      file_paths.each do |file_path|
+        ::CSV.open(file_path, 'a') do |csv|
+          unless @headers_written
+            csv << COLUMNS
+            @headers_written = true
+          end
+
           csv << row
         end
       end
-
-      file_path
     end
-
-    private
 
     def field_names_match?(name_a, name_b)
       a, b = [name_a, name_b].map { |n| n.to_s.downcase.gsub(/[^a-z0-9]/, '').strip }
