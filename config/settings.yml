@@ -1,6 +1,6 @@
 mongodb:
   # TODO: allow connecting to multiple hosts
-  host: localhost
+  hosts: []
   port: 27017
   database: everbridge_sync
   username: everbridge_sync

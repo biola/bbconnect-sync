@@ -1,5 +1,6 @@
 mongodb:
-  host: mongo1.staging.biola.edu
+  hosts:
+  - mongo1.staging.biola.edu
 
 redis:
   url: "redis://redis1.staging.biola.edu:6379/0"
