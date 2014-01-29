@@ -4,6 +4,7 @@ module EverbridgeSync
     require 'rails_config'
     require 'mail'
     require 'sidekiq'
+    require 'exception_notification'
 
     env = ENV['RACK_ENV'] || ENV['RAILS_ENV'] || :development
 
@@ -19,6 +20,12 @@ module EverbridgeSync
 
     Sidekiq.configure_client do |config|
       config.redis = { url: Settings.redis.url, namespace: 'everbridge-sync' }
+    end
+
+    if defined? ::ExceptionNotifier
+      require 'active_support/core_ext'
+      require 'exception_notification/sidekiq'
+      ExceptionNotifier.register_exception_notifier(:email, Settings.exception_notification.options.to_hash)
     end
 
     require './lib/everbridge'

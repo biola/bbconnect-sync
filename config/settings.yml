@@ -1,5 +1,4 @@
 mongodb:
-  # TODO: allow connecting to multiple hosts
   hosts: []
   port: 27017
   database: everbridge_sync
@@ -33,3 +32,10 @@ email:
   invalid_cell:
     subject: "Your cell phone number in my.biola is invalid"
   once_every: 30 # days
+
+exception_notification:
+  options:
+    email_prefix: "[everbridge-sync] "
+    sender_address: "no-reply@biola.edu"
+    exception_recipients:
+      - appdev@biola.edu

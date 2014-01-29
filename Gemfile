@@ -18,3 +18,7 @@ end
 group :test do
   gem 'rspec'
 end
+
+group :production do
+  gem 'exception_notification'
+end
