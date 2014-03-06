@@ -25,7 +25,7 @@ module Everbridge
     end
 
     def csv_attributes
-      {external_id: id_number, first_name: first_name, last_name: last_name, email_address: email, mobile_phone: cell, groups: groups}
+      {external_id: id_number, first_name: first_name, last_name: last_name, email_address: email, mobile_phone: cell, sms_device_1: cell, groups: groups}
     end
 
     # I'm preferring is? over eql? because I feel it better represents what we're checking.
