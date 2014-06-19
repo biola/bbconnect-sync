@@ -18,7 +18,7 @@ describe Everbridge::Contact do
 
   # See ContactHelpers#new_contact for default attributes
   its(:attributes) { should eql id_number: 1234567, first_name: 'John', last_name: 'Doe', email: 'john.doe@example.com', cell: '1231231234', groups: [] }
-  its(:csv_attributes) { should eql external_id: 1234567, first_name: 'John', last_name: 'Doe', email_address: 'john.doe@example.com', mobile_phone: '1231231234', groups: [] }
+  its(:csv_attributes) { should eql external_id: 1234567, first_name: 'John', last_name: 'Doe', email_address: 'john.doe@example.com', mobile_phone: '1231231234', sms_device_1: '1231231234', groups: [] }
 
   describe '#is?' do
     context 'when other is same contact' do
