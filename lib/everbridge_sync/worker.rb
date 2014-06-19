@@ -7,7 +7,7 @@ module EverbridgeSync
     include Sidetiq::Schedulable
 
     recurrence do
-      daily.hour_of_day(Settings.schedule.hour)
+      daily.hour_of_day(Settings.worker.schedule.hour)
     end
     # This job should only run once
     sidekiq_options unique: true
@@ -17,7 +17,9 @@ module EverbridgeSync
     end
 
     def perform
-      @synchronizer.sync!
+      if Settings.worker.enabled
+        @synchronizer.sync!
+      end
     end
   end
 end

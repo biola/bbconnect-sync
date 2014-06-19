@@ -11,8 +11,10 @@ oracle:
 redis:
   url: "redis://localhost:6379/0"
 
-schedule:
-  hour: 5
+worker:
+  enabled: true
+  schedule:
+    hour: 5
 
 csv:
   paths:
