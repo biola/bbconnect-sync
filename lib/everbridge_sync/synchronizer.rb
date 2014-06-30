@@ -5,9 +5,10 @@ module EverbridgeSync
     end
 
     def sync!
-      append_new_contacts_to_csv!
-      append_updated_contacts_to_csv!
-      append_removed_contacts_to_csv!
+      append_new_contacts_to_csv
+      append_updated_contacts_to_csv
+      append_removed_contacts_to_csv
+      csv.save!
     end
 
     private
@@ -28,7 +29,7 @@ module EverbridgeSync
       @comparer ||= Everbridge::ContactCollectionComparer.new(stored_contacts, updated_contacts)
     end
 
-    def append_new_contacts_to_csv!
+    def append_new_contacts_to_csv
       comparer.added.each do |contact|
         if valid? contact
           csv.add(contact.csv_attributes)
@@ -37,7 +38,7 @@ module EverbridgeSync
       end
     end
 
-    def append_updated_contacts_to_csv!
+    def append_updated_contacts_to_csv
       comparer.updated.each do |updated_contact|
         if valid? updated_contact
           outdated_contact = @stored_contacts[updated_contact]
@@ -52,7 +53,7 @@ module EverbridgeSync
       end
     end
 
-    def append_removed_contacts_to_csv!
+    def append_removed_contacts_to_csv
       comparer.removed.each do |contact|
         csv.remove contact.csv_attributes
         contact.delete!

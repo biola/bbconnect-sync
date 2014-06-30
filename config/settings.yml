@@ -20,11 +20,7 @@ csv:
   paths:
     - "./files"
   filename_prefix: "everbridge_export"
-  defaults:
-    organization: Biola University
-    country: United States
-    role: Contact
-    language: "English (US)"
+  defaults: {}
 
 # See http://rdoc.info/github/mikel/mail/Mail#defaults-class_method
 email:
