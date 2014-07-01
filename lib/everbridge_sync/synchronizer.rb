@@ -45,7 +45,7 @@ module EverbridgeSync
           old_groups = outdated_contact.groups - updated_contact.groups
 
           attributes = updated_contact.csv_attributes
-          attributes.merge! remove_groups: old_groups
+          attributes.merge! del_group: old_groups
 
           csv.update attributes
           updated_contact.store!
