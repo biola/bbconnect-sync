@@ -13,6 +13,8 @@ gem 'progress_bar'
 
 group :development do
   gem 'pry'
+  gem 'pry-stack_explorer'
+  gem 'pry-rescue'
 end
 
 group :test do
