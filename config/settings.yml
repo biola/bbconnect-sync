@@ -17,8 +17,7 @@ worker:
     hour: 5
 
 csv:
-  paths:
-    - "./files"
+  path: "./files"
   filename_prefix: "bbconnect_export"
   defaults: {}
 

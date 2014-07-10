@@ -34,7 +34,7 @@ Other,1,John,Doe,john.doe@example.com,0,,,
 EOD
     end
 
-    before { synchronizer.stub(:csv_file_paths).and_return [file_path] }
+    before { synchronizer.stub(:csv_file_path).and_return file_path }
 
     let!(:result) { synchronizer.sync! }
 

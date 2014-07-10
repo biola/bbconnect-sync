@@ -22,7 +22,7 @@ module BBConnectSync
     end
 
     def csv
-      @csv ||= BBConnect::CSV.new(csv_file_paths)
+      @csv ||= BBConnect::CSV.new(csv_file_path)
     end
 
     def comparer
@@ -68,14 +68,12 @@ module BBConnectSync
       end
     end
 
-    def csv_file_paths
-      paths     = Settings.csv.paths
+    def csv_file_path
+      path      = Settings.csv.path
       prefix    = Settings.csv.filename_prefix
       timestamp = Time.now.to_i
 
-      paths.map do |path|
-        "#{path}/#{prefix}-#{timestamp}.csv"
-      end
+      "#{path}/#{prefix}-#{timestamp}.csv"
     end
   end
 end

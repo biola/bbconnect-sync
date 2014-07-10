@@ -24,8 +24,8 @@ module BBConnect
 
     attr_reader :rows
 
-    def initialize(file_paths)
-      @file_paths = Array(file_paths)
+    def initialize(file_path)
+      @file_path = file_path
       @rows = []
       @headers_written = false
     end
@@ -79,20 +79,18 @@ module BBConnect
     def save!
       flat_rows = flattened_rows
 
-      file_paths.each do |file_path|
-        ::CSV.open(file_path, 'w') do |csv|
-          csv << flattened_columns
+      ::CSV.open(file_path, 'w') do |csv|
+        csv << flattened_columns
 
-          flat_rows.each do |row|
-            csv << row
-          end
+        flat_rows.each do |row|
+          csv << row
         end
       end
     end
 
     private
 
-    attr_reader :file_paths
+    attr_reader :file_path
 
     def max_length(column)
       @lengths ||= DUPLICABLE_COLUMNS.each_with_object({}) do |col, hash|
