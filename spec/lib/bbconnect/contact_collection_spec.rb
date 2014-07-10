@@ -15,10 +15,6 @@ describe BBConnect::ContactCollection do
   describe '#[]' do
     before { subject << contact }
 
-    context 'with some invalid object' do
-      it { expect(subject[Object.new]).to be_nil }
-    end
-
     context 'with different id_numbers' do
       it { expect(subject[other_contact]).to be_nil }
     end
@@ -34,10 +30,6 @@ describe BBConnect::ContactCollection do
 
   describe '#includes?' do
     before { subject << contact }
-
-    context 'with some invalid object' do
-      it { expect(subject.includes? Object.new).to be_false }
-    end
 
     context 'with different id_numbers' do
       it { expect(subject.includes? other_contact).to be_false }

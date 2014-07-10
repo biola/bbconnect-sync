@@ -29,8 +29,6 @@ module BBConnectSync
     end
 
     require './lib/bbconnect'
-    require './lib/bbconnect_sync/email'
-    require './lib/bbconnect_sync/email_log'
     require './lib/bbconnect_sync/group_rules'
     require './lib/bbconnect_sync/mongo_db'
     require './lib/bbconnect_sync/oracle'

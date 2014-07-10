@@ -15,6 +15,7 @@ namespace :import do
     BBConnect::Contact.delete_all!
 
     contacts.each do |row|
+      # TODO: This was written for Everbridge and should be rewritten for Blackboard Connect
       contact = BBConnect::Contact.new(row['External Id'], row['First Name'], row['Last Name'], row['E-mail Address'], row['Mobile Phone'], row['Member Of Group'].to_s.split('|'))
       contact.store!
 

@@ -31,25 +31,21 @@ module BBConnectSync
 
     def append_new_contacts_to_csv
       comparer.added.each do |contact|
-        if valid? contact
-          csv.add(contact.csv_attributes)
-          contact.store!
-        end
+        csv.add(contact.csv_attributes)
+        contact.store!
       end
     end
 
     def append_updated_contacts_to_csv
       comparer.updated.each do |updated_contact|
-        if valid? updated_contact
-          outdated_contact = @stored_contacts[updated_contact]
-          old_groups = outdated_contact.groups - updated_contact.groups
+        outdated_contact = @stored_contacts[updated_contact]
+        old_groups = outdated_contact.groups - updated_contact.groups
 
-          attributes = updated_contact.csv_attributes
-          attributes.merge! del_group: old_groups
+        attributes = updated_contact.csv_attributes
+        attributes.merge! del_group: old_groups
 
-          csv.update attributes
-          updated_contact.store!
-        end
+        csv.update attributes
+        updated_contact.store!
       end
     end
 
@@ -67,16 +63,6 @@ module BBConnectSync
 
       paths.map do |path|
         "#{path}/#{prefix}-#{timestamp}.csv"
-      end
-    end
-
-    def valid?(contact)
-      if BBConnect::Validator.valid? contact
-        true
-      else
-        Email::InvalidCell.new(contact).send!
-
-        false
       end
     end
   end
