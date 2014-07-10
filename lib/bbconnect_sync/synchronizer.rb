@@ -39,13 +39,25 @@ module BBConnectSync
     def append_updated_contacts_to_csv
       comparer.updated.each do |updated_contact|
         outdated_contact = @stored_contacts[updated_contact]
-        old_groups = outdated_contact.groups - updated_contact.groups
 
-        attributes = updated_contact.csv_attributes
-        attributes.merge! del_group: old_groups
+        # Blackboard Connect only considers IDs as unique within a ContactType
+        # So if a person's type changes we need to delete their record under
+        # the old type and create one with the new type
+        if outdated_contact.type != updated_contact.type
+          csv.remove outdated_contact.csv_attributes
+          outdated_contact.delete!
 
-        csv.update attributes
-        updated_contact.store!
+          csv.add updated_contact.csv_attributes
+          updated_contact.store!
+        else
+          old_groups = outdated_contact.groups - updated_contact.groups
+
+          attributes = updated_contact.csv_attributes
+          attributes.merge! del_group: old_groups
+
+          csv.update attributes
+          updated_contact.store!
+        end
       end
     end
 

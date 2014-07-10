@@ -11,7 +11,7 @@ module BBConnect
       @groups     = Array(groups)
     end
 
-    def contact_type
+    def type
       if groups.include? 'Employees'
         'Staff'
       elsif groups.include? 'Students'
@@ -34,7 +34,7 @@ module BBConnect
     end
 
     def csv_attributes
-      {contact_type: contact_type, reference_code: id_number, first_name: first_name, last_name: last_name, email_address: email, group: groups}
+      {contact_type: type, reference_code: id_number, first_name: first_name, last_name: last_name, email_address: email, group: groups}
     end
 
     # I'm preferring is? over eql? because I feel it better represents what we're checking.
