@@ -17,7 +17,7 @@ describe BBConnect::Contact do
   end
 
   # See ContactHelpers#new_contact for default attributes
-  its(:attributes) { should eql id_number: 1234567, first_name: 'John', last_name: 'Doe', email: 'john.doe@example.com', cell: '1231231234', groups: [] }
+  its(:attributes) { should eql id_number: 1234567, first_name: 'John', last_name: 'Doe', email: 'john.doe@example.com', groups: [] }
   its(:csv_attributes) { should eql contact_type: 'Other', reference_code: 1234567, first_name: 'John', last_name: 'Doe', email_address: 'john.doe@example.com', group: [] }
 
   describe '#is?' do

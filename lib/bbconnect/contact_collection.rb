@@ -39,7 +39,7 @@ module BBConnect
 
       self.new.tap do |collection|
         db[:contacts].find.map do |record|
-          collection << Contact.new(record['id_number'], record['first_name'], record['last_name'], record['email'], record['cell'], record['groups'])
+          collection << Contact.new(record['id_number'], record['first_name'], record['last_name'], record['email'], record['groups'])
         end
       end
     end
