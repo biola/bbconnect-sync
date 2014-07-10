@@ -23,7 +23,7 @@ describe EverbridgeSync::Synchronizer do
     let(:file_path) { '/tmp/everbridge_sync_test.csv' }
     let(:csv_content) do
 <<EOD
-ContactType,ReferenceCode,FirstName,LastName,EmailAddress,Terminate,Group,Group,DelGroup
+ContactType,ReferenceCode,FirstName,LastName,EmailAddress,Terminate,Group,Group,DelGrp
 Staff,4,John,Doe,john.doe@example.com,,Employees,,
 Student,3,William,Doe,john.doe@example.com,,Students,Students - on campus,Students - off campus
 Other,1,John,Doe,john.doe@example.com,0,,,

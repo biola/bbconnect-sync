@@ -13,12 +13,12 @@ module Everbridge
       'EmailAddress',   # 4
       'Terminate',      # 5
       'Group',          # 6
-      'DelGroup'        # 7
+      'DelGrp'        # 7
     ]
 
-    # NOTE: DelGroup may not allow multiple columns, which would be a pain.
+    # NOTE: DelGrp may not allow multiple columns, which would be a pain.
     # Needs to be tested further.
-    DUPLICABLE_COLUMNS = ['Group', 'DelGroup']
+    DUPLICABLE_COLUMNS = ['Group', 'DelGrp']
 
     SINGLETON_COLUMNS = COLUMNS - DUPLICABLE_COLUMNS
 
@@ -111,7 +111,7 @@ module Everbridge
         'EmailAddress' => :email_address,
         'Terminate' => :terminate,
         'Group' => :group,
-        'DelGroup' => :del_group
+        'DelGrp' => :del_group
       }
 
       def initialize(fields)
