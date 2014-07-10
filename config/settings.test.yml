@@ -1,4 +1,4 @@
 mongodb:
   hosts:
   - localhost
-  database: everbridge_sync_test
+  database: bbconnect_sync_test

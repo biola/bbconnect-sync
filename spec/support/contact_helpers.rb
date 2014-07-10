@@ -7,10 +7,10 @@ module ContactHelpers
     cell        = attributes[:cell]       || '1231231234'
     groups      = attributes[:groups]     || []
 
-    Everbridge::Contact.new id_number, first_name, last_name, email, cell, groups
+    BBConnect::Contact.new id_number, first_name, last_name, email, cell, groups
   end
 
   def delete_all_contacts!
-    EverbridgeSync::MongoDB.new[:contacts].remove()
+    BBConnectSync::MongoDB.new[:contacts].remove()
   end
 end

@@ -1,8 +1,8 @@
 mongodb:
   hosts: []
   port: 27017
-  database: everbridge_sync
-  username: everbridge_sync
+  database: bbconnect_sync
+  username: bbconnect_sync
   password: # set in settings.local.yml
 
 oracle:
@@ -19,7 +19,7 @@ worker:
 csv:
   paths:
     - "./files"
-  filename_prefix: "everbridge_export"
+  filename_prefix: "bbconnect_export"
   defaults: {}
 
 # See http://rdoc.info/github/mikel/mail/Mail#defaults-class_method
@@ -33,7 +33,7 @@ email:
 
 exception_notification:
   options:
-    email_prefix: "[everbridge-sync] "
+    email_prefix: "[bbconnect-sync] "
     sender_address: "no-reply@biola.edu"
     exception_recipients:
       - appdev@biola.edu

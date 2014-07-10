@@ -6,7 +6,7 @@ require 'bundler'
 Bundler.setup :default, :test
 
 require 'rspec'
-require 'everbridge_sync'
-EverbridgeSync.initialize!
+require 'bbconnect_sync'
+BBConnectSync.initialize!
 
 Dir['./spec/support/*.rb'].each { |f| require f }
