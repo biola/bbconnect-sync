@@ -32,6 +32,10 @@ module BBConnectSync
       @groups
     end
 
+    def self.all_groups(options = {})
+      AllGroupReader.new(options).all_groups
+    end
+
     private
 
     def add_to_group(group, &block)
@@ -40,6 +44,22 @@ module BBConnectSync
       block.call
 
       @groups << group if @conditions.all?
+    end
+
+    class AllGroupReader
+      def initialize(options = {})
+        @file = options[:file] || 'config/group_rules.rb'
+        @groups = []
+      end
+
+      def add_to_group(group)
+        @groups <<= group
+      end
+
+      def all_groups
+        instance_eval File.read(@file)
+        @groups
+      end
     end
   end
 end

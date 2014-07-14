@@ -10,13 +10,19 @@ namespace :import do
     raise ArgumentError, 'FILE_PATH is required.' if ENV['FILE_PATH'].nil?
 
     contacts = CSV.read(ENV['FILE_PATH'], { headers: true } )
+    synced_groups = BBConnectSync::GroupRules.all_groups
     bar = ProgressBar.new(contacts.length)
 
     BBConnect::Contact.delete_all!
 
     contacts.each do |row|
-      # TODO: This was written for Everbridge and should be rewritten for Blackboard Connect
-      contact = BBConnect::Contact.new(row['External Id'], row['First Name'], row['Last Name'], row['E-mail Address'], row['Mobile Phone'], row['Member Of Group'].to_s.split('|'))
+      id_number = row['REFERENCECODE']
+      first_name = row['FIRSTNAME']
+      last_name = row['LASTNAME']
+      email = row['EMAILADDRESS']
+      groups = row.map { |col, val| val if col == 'GROUP' }.compact & synced_groups
+
+      contact = BBConnect::Contact.new(id_number, first_name, last_name, email, groups)
       contact.store!
 
       bar.increment!
