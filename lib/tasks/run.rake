@@ -7,6 +7,6 @@ namespace :run do
 
     BBConnectSync.initialize!
 
-    BBConnectSync::Worker.perform_async
+    BBConnectSync::Worker::CSVWriter.perform_async
   end
 end
