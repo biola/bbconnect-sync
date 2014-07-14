@@ -86,6 +86,8 @@ module BBConnect
           csv << row
         end
       end
+
+      file_path
     end
 
     private

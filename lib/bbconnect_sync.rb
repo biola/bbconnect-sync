@@ -33,7 +33,8 @@ module BBConnectSync
     require './lib/bbconnect_sync/mongo_db'
     require './lib/bbconnect_sync/oracle'
     require './lib/bbconnect_sync/synchronizer'
-    require './lib/bbconnect_sync/worker'
+    require './lib/bbconnect_sync/workers/csv_writer'
+    require './lib/bbconnect_sync/workers/csv_uploader'
 
     true
   end

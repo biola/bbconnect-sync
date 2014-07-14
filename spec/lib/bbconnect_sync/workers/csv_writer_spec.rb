@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe BBConnectSync::Worker do
+describe BBConnectSync::Worker::CSVWriter do
   before { Settings.stub_chain(:worker, :enabled).and_return(enabled) }
 
   context 'when enabled' do

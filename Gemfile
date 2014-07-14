@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'blazing'
 gem 'biola_deploy'
+gem 'curb'
 gem 'mail'
 gem 'mongodb'
 gem 'rails_config'
@@ -19,6 +20,7 @@ end
 
 group :test do
   gem 'rspec'
+  gem 'webmock'
 end
 
 group :production do

@@ -33,3 +33,7 @@ exception_notification:
     sender_address: "no-reply@biola.edu"
     exception_recipients:
       - appdev@biola.edu
+
+bbconnect:
+  username: BIOLAIMPORTER
+  password: # set in settings.local.yml

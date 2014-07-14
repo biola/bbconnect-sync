@@ -6,6 +6,7 @@ require 'bundler'
 Bundler.setup :default, :test
 
 require 'rspec'
+require 'webmock/rspec'
 require 'bbconnect_sync'
 BBConnectSync.initialize!
 
