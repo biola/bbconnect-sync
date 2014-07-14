@@ -2,7 +2,6 @@ mongodb:
   hosts:
   - mongo1.prod.biola.edu
   - mongo2.prod.biola.edu
-  - mongo3.prod.biola.edu
 
 email:
   delivery_method: smtp
