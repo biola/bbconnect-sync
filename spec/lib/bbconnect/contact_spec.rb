@@ -59,7 +59,7 @@ describe BBConnect::Contact do
     before { contact.store! }
 
     it 'saves to the database' do
-      expect(BBConnectSync::MongoDB.new[:contacts].find(id_number: id_number).count).to eql 1
+      expect(BBConnectSync::MongoDB.client { |db| db[:contacts].find(id_number: id_number).count }).to eql 1
     end
 
     after { delete_all_contacts! }
@@ -70,7 +70,7 @@ describe BBConnect::Contact do
     before { contact.store! }
 
     it 'deletes from the database' do
-      expect{contact.delete!}.to change{BBConnectSync::MongoDB.new[:contacts].find(id_number: id_number).count}.from(1).to 0
+      expect{contact.delete!}.to change{BBConnectSync::MongoDB.client { |db| db[:contacts].find(id_number: id_number).count }}.from(1).to 0
     end
   end
 

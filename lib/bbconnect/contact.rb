@@ -64,21 +64,21 @@ module BBConnect
     # I'm not calling it "save!" because querying Oracle for contacts and then saving those contacts
     # would save them to MongoDB and not to Oracle like you'd expect.
     def store!
-      db = BBConnectSync::MongoDB.new
-
-      db[:contacts].update({id_number: id_number}, attributes, upsert: true)
+      BBConnectSync::MongoDB.client do |db|
+        db[:contacts].update({id_number: id_number}, attributes, upsert: true)
+      end
     end
 
     def delete!
-      db = BBConnectSync::MongoDB.new
-
-      db[:contacts].remove id_number: id_number
+      BBConnectSync::MongoDB.client do |db|
+        db[:contacts].remove id_number: id_number
+      end
     end
 
     def self.delete_all!
-      db = BBConnectSync::MongoDB.new
-
-      db[:contacts].remove
+      BBConnectSync::MongoDB.client do |db|
+        db[:contacts].remove
+      end
     end
 
     def to_s
