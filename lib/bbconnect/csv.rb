@@ -79,15 +79,17 @@ module BBConnect
     def save!
       flat_rows = flattened_rows
 
-      ::CSV.open(file_path, 'w') do |csv|
-        csv << flattened_columns
+      if flat_rows.any?
+        ::CSV.open(file_path, 'w') do |csv|
+          csv << flattened_columns
 
-        flat_rows.each do |row|
-          csv << row
+          flat_rows.each do |row|
+            csv << row
+          end
         end
-      end
 
-      file_path
+        file_path
+      end
     end
 
     private

@@ -19,8 +19,9 @@ module BBConnectSync
 
       def perform
         if Settings.worker.enabled
-          file_path = @synchronizer.sync!
-          CSVUploader.perform_async(file_path)
+          if file_path = @synchronizer.sync!
+            CSVUploader.perform_async(file_path)
+          end
         end
       end
     end

@@ -53,19 +53,25 @@ describe BBConnect::CSV do
   end
 
   describe '#save!' do
-    let(:csv_content) do
+    context 'with changes' do
+      let(:csv_content) do
 <<EOD
 ContactType,ReferenceCode,FirstName,LastName,EmailAddress,Terminate
 Other,1234567,John,Doe,john.doe@example.com,
 EOD
+      end
+
+      before do
+        # See ContactHelpers#new_contact for default attributes
+        csv.add new_contact.csv_attributes
+        csv.save!
+      end
+
+      it { expect(File.read(file_path)).to eql csv_content }
     end
 
-    before do
-      # See ContactHelpers#new_contact for default attributes
-      csv.add new_contact.csv_attributes
-      csv.save!
+    context 'without changes' do
+      it { expect(csv.save!).to be_nil }
     end
-
-    it { expect(File.read(file_path)).to eql csv_content }
   end
 end
