@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'blazing'
-gem 'biola_deploy'
 gem 'curb'
 gem 'mail'
 gem 'mongodb'
