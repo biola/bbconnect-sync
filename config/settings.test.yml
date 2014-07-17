@@ -2,3 +2,7 @@ mongodb:
   hosts:
   - localhost
   database: bbconnect_sync_test
+
+bbconnect:
+  # Was getting Argument Erorrs from curb on Travis CI if password was nil
+  password: "****************"
