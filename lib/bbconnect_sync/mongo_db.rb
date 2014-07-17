@@ -12,7 +12,10 @@ module BBConnectSync
         Mongo::MongoClient.new(Settings.mongodb.hosts.first)
       end
       db = mongo_client.db(Settings.mongodb.database)
-      db.authenticate Settings.mongodb.username, Settings.mongodb.password
+
+      if Settings.mongodb.username && Settings.mongodb.password
+        db.authenticate Settings.mongodb.username, Settings.mongodb.password
+      end
 
       result = yield db
       mongo_client.close
