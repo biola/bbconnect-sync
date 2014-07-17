@@ -1,6 +1,3 @@
-require 'sidekiq'
-require 'curb'
-
 module BBConnectSync
   module Worker
     class UploadError < StandardError; end

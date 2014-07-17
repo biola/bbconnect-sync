@@ -1,5 +1,3 @@
-require 'oci8'
-
 module BBConnectSync
   class Oracle
     def contacts

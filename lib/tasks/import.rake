@@ -3,7 +3,6 @@ namespace :import do
   task(:csv) do
     require 'csv'
     require './lib/bbconnect_sync'
-    require 'progress_bar'
 
     BBConnectSync.initialize!
 

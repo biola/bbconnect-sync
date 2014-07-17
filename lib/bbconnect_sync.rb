@@ -1,11 +1,6 @@
 module BBConnectSync
 
   def self.initialize!
-    require 'rails_config'
-    require 'mail'
-    require 'sidekiq'
-    require 'exception_notification'
-
     env = ENV['RACK_ENV'] || ENV['RAILS_ENV'] || :development
 
     RailsConfig.load_and_set_settings('./config/settings.yml', "./config/settings.#{env}.yml", './config/settings.local.yml')

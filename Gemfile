@@ -6,12 +6,15 @@ gem 'mail'
 gem 'mongodb'
 gem 'rails_config'
 gem 'rake'
-gem 'ruby-oci8'
 gem 'sidekiq'
 gem 'sidetiq'
 gem 'progress_bar'
 
-group :development do
+group :development, :staging, :production do
+  gem 'ruby-oci8', require: 'oci8'
+end
+
+group :development, :test do
   gem 'pry'
   gem 'pry-stack_explorer'
   gem 'pry-rescue'

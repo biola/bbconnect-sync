@@ -1,6 +1,3 @@
-require 'sidekiq'
-require 'sidetiq'
-
 module BBConnectSync
   module Worker
     class CSVWriter
