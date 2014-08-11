@@ -13,7 +13,7 @@ end
 
 add_to_group 'Students - off campus' do
   if_affiliation_matches 'student'
-  and_housing_matches 'beachcomber apartments', 'lido mirada apartments', 'tradewind apartments', 'tropicana apartments', 'calpella house', 'calpella two', 'fairvilla house', 'figueras house', 'philosophy house', 'rosecrans 1', 'rosecrans 2', 'rosecrans 3', 'rosecrans 4', 'rosecrans 5', 'gardenhill house', 'biola house', 'springford house'
+  and_housing_matches 'beachcomber apartments', 'la mirada apartments', 'lido mirada apartments', 'tradewind apartments', 'tropicana apartments', 'calpella house', 'figueras house', 'philosophy house', 'rosecrans 1', 'rosecrans 2', 'rosecrans 3', 'rosecrans 4', 'rosecrans 5', 'gardenhill house', 'biola house', 'springford house', 'ranch apartments', 'whiterock house'
 end
 
 add_to_group 'Students - off campus' do
@@ -63,7 +63,7 @@ end
 
 add_to_group 'Li' do
   if_affiliation_matches 'student'
-  and_housing_matches 'li'
+  and_housing_matches 'li apartments'
 end
 
 add_to_group 'Welch' do
@@ -74,6 +74,11 @@ end
 add_to_group 'Beachcomber - 14641 Rosecrans Ave' do
   if_affiliation_matches 'student'
   and_housing_matches 'beachcomber apartments'
+end
+
+add_to_group 'La Mirada - 14311 Rosecrans Ave' do
+  if_affiliation_matches 'student'
+  and_housing_matches 'la mirada apartments'
 end
 
 add_to_group 'Lido Mirada - 14653 Rosecrans Ave' do
@@ -94,16 +99,6 @@ end
 add_to_group 'Calpella House - 14714 Calpella St' do
   if_affiliation_matches 'student'
   and_housing_matches 'calpella house'
-end
-
-add_to_group 'Calpella Two - 14849 Calpella St' do
-  if_affiliation_matches 'student'
-  and_housing_matches 'calpella two'
-end
-
-add_to_group 'Fairvilla House - 14896 Fairvilla Dr' do
-  if_affiliation_matches 'student'
-  and_housing_matches 'fairvilla house'
 end
 
 add_to_group 'Figueras House - 14203 Figueras Rd' do
@@ -154,4 +149,14 @@ end
 add_to_group 'Springford House - 13317 Springford Ave' do
   if_affiliation_matches 'student'
   and_housing_matches 'springford house'
+end
+
+add_to_group 'Ranch Apartments - 14549 Stage Rd' do
+  if_affiliation_matches 'student'
+  and_housing_matches 'ranch apartments'
+end
+
+add_to_group 'Whiterock House - 14017 Whiterock Dr' do
+  if_affiliation_matches 'student'
+  and_housing_matches 'whiterock house'
 end
