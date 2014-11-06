@@ -6,7 +6,7 @@ gem 'mail'
 gem 'mongodb'
 gem 'rails_config'
 gem 'rake'
-gem 'sidekiq'
+gem 'sidekiq', '3.2.6'
 gem 'sidetiq'
 gem 'progress_bar'
 
