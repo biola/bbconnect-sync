@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 gem 'blazing'
 gem 'curb'
-gem 'mail'
 gem 'mongodb'
 gem 'rails_config'
 gem 'rake'
@@ -26,5 +25,5 @@ group :test do
 end
 
 group :production do
-  gem 'exception_notification'
+  gem 'sentry-raven'
 end

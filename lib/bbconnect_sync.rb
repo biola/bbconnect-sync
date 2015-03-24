@@ -5,8 +5,10 @@ module BBConnectSync
 
     RailsConfig.load_and_set_settings('./config/settings.yml', "./config/settings.#{env}.yml", './config/settings.local.yml')
 
-    Mail.defaults do
-      delivery_method Settings.email.delivery_method, Settings.email.options.to_hash
+    if defined? Raven
+      Raven.configure do |config|
+        config.dsn = Settings.sentry.url
+      end
     end
 
     Sidekiq.configure_server do |config|
@@ -15,12 +17,6 @@ module BBConnectSync
 
     Sidekiq.configure_client do |config|
       config.redis = { url: Settings.redis.url, namespace: 'bbconnect-sync' }
-    end
-
-    if defined? ::ExceptionNotifier
-      require 'active_support/core_ext'
-      require 'exception_notification/sidekiq'
-      ExceptionNotifier.register_exception_notifier(:email, Settings.exception_notification.options.to_hash)
     end
 
     require './lib/bbconnect'
