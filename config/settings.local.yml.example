@@ -4,5 +4,8 @@ mongodb:
 oracle:
   connection_string: "username/******@dbserver.example.com/PROD.example.com"
 
+sentry:
+  url: # Set me!
+
 bbconnect:
   password: "************"
