@@ -1,5 +1,5 @@
 BBConnect Sync
-______________
+==============
 Syncs contacts from Banner to [Blackboard Connect](http://www.blackboard.com/Platforms/Connect/Products/Blackboard-Connect.aspx)
 
 Requirements
