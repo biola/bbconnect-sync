@@ -17,7 +17,10 @@ module BBConnectSync
       def perform
         if Settings.worker.enabled
           if file_path = @synchronizer.sync!
-            CSVUploader.perform_async(file_path)
+            # It would be nice to run this asynchronously but in a load balanced situation
+            # we can't guarantee that the file wasn't written onto a different server.
+            # Until we have a shared files directory, this is the best workaround.
+            CSVUploader.new.perform(file_path)
           end
         end
       end
