@@ -8,7 +8,7 @@ end
 
 add_to_group 'Students - on campus' do
   if_affiliation_matches 'student'
-  and_housing_matches 'alpha', 'emerson', 'hart', 'hope', 'horton', 'stewart', 'sigma', 'thompson', 'li', 'welch'
+  and_housing_matches 'alpha', 'blackstone', 'emerson', 'hart', 'hope', 'horton', 'stewart', 'sigma', 'thompson', 'li', 'welch'
 end
 
 add_to_group 'Students - off campus' do
@@ -24,6 +24,11 @@ end
 add_to_group 'Alpha' do
   if_affiliation_matches 'student'
   and_housing_matches 'alpha'
+end
+
+add_to_group 'Blackstone' do
+  if_affiliation_matches 'student'
+  and_housing_matches 'blackstone'
 end
 
 add_to_group 'Emerson' do
