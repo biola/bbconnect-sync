@@ -20,7 +20,7 @@ GEM
     celluloid (0.15.2)
       timers (~> 1.1.0)
     coderay (1.0.9)
-    connection_pool (2.0.0)
+    connection_pool (2.2.0)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     curb (0.8.5)
@@ -70,7 +70,7 @@ GEM
     rails_config (0.3.3)
       activesupport (>= 3.0)
     rake (10.1.0)
-    redis (3.1.0)
+    redis (3.2.1)
     redis-namespace (1.5.1)
       redis (~> 3.0, >= 3.0.4)
     rspec (2.14.1)
@@ -124,3 +124,6 @@ DEPENDENCIES
   sidekiq (= 3.2.6)
   sidetiq
   webmock
+
+BUNDLED WITH
+   1.10.6
