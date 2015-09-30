@@ -19,6 +19,11 @@ module BBConnectSync
       config.redis = { url: Settings.redis.url, namespace: 'bbconnect-sync' }
     end
 
+    schedule_file = "config/schedule.yml"
+    if File.exists?(schedule_file)
+      Sidekiq::Cron::Job.load_from_hash YAML.load_file(schedule_file)
+    end
+
     require './lib/bbconnect'
     require './lib/bbconnect_sync/group_rules'
     require './lib/bbconnect_sync/mongo_db'

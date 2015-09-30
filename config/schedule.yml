@@ -1,0 +1,8 @@
+##############################
+########## Changes ###########
+##############################
+
+CSVWriter:
+  cron: "0 5 * * *"
+  class: "BBConnectSync::Worker::CSVWriter"
+  queue: default

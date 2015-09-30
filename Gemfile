@@ -1,12 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'blazing'
 gem 'curb'
 gem 'mongodb'
 gem 'rails_config'
 gem 'rake'
-gem 'sidekiq', '3.2.6'
-gem 'sidetiq'
+gem 'sidekiq'
+gem 'sidekiq-cron'
 gem 'progress_bar'
 
 group :development, :staging, :production do

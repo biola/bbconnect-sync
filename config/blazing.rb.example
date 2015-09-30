@@ -1,5 +1,0 @@
-target :'ruby2.staging', 'johnd0@ruby1.staging.biola.edu:/srv/rack/bbconnect-sync', rails_env: 'staging'
-target :'ruby2.prod',    'johnd0@ruby2.prod.biola.edu:/srv/rack/bbconnect-sync',    rails_env: 'production'
-target :'ruby3.prod',    'johnd0@ruby3.prod.biola.edu:/srv/rack/bbconnect-sync',    rails_env: 'production'
-
-env_scripts '/etc/profile'
