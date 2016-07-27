@@ -1,7 +1,6 @@
 mongodb:
   hosts:
   - "localhost:27017"
-  port: 27017
   # database: bbconnect_sync
   # user: bbconnect_sync
   # password:
