@@ -65,19 +65,20 @@ module BBConnect
     # would save them to MongoDB and not to Oracle like you'd expect.
     def store!
       BBConnectSync::MongoDB.client do |db|
-        db[:contacts].update({id_number: id_number}, attributes, upsert: true)
+        # The upsert option tells mongo to insert a new document if it can't fine one to update
+        db[:contacts].update_one({id_number: id_number}, attributes, upsert: true)
       end
     end
 
     def delete!
       BBConnectSync::MongoDB.client do |db|
-        db[:contacts].remove id_number: id_number
+        db[:contacts].delete_many({id_number: id_number})
       end
     end
 
     def self.delete_all!
       BBConnectSync::MongoDB.client do |db|
-        db[:contacts].remove
+        db[:contacts].delete_many
       end
     end
 

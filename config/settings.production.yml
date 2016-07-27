@@ -1,7 +1,0 @@
-mongodb:
-  hosts:
-  - mongo1a.prod.biola.edu
-  - mongo1b.prod.biola.edu
-
-redis:
-  url: "redis://redis1.prod.biola.edu:6379/0"

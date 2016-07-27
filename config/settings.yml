@@ -1,9 +1,8 @@
 mongodb:
   hosts: []
-  port: 27017
-  database: bbconnect_sync
-  username: bbconnect_sync
-  password: # set in settings.local.yml
+  # database: bbconnect_sync
+  # user: bbconnect_sync
+  # password:
 
 oracle:
   connection_string: # set in settings.local.yml

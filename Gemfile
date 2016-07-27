@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'curb'
-gem 'mongodb'
+gem 'mongo', '~> 2.2', '>= 2.2.7'
 gem 'rails_config'
 gem 'rake'
 gem 'sidekiq'
@@ -9,7 +9,7 @@ gem 'sidekiq-cron'
 gem 'progress_bar'
 
 group :development, :staging, :production do
-  gem 'ruby-oci8', require: 'oci8'
+  gem 'ruby-oci8', '~> 2.2.2', require: 'oci8'
 end
 
 group :development, :test do
