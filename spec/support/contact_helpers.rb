@@ -10,6 +10,6 @@ module ContactHelpers
   end
 
   def delete_all_contacts!
-    BBConnectSync::MongoDB.client { |db| db[:contacts].remove() }
+    BBConnectSync::MongoDB.client { |db| db[:contacts].delete_many({}) }
   end
 end

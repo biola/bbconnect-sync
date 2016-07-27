@@ -1,4 +1,2 @@
 mongodb:
-  hosts:
-  - localhost
   database: bbconnect_sync_development

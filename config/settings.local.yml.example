@@ -1,5 +1,8 @@
 mongodb:
-  password: "***********"
+  # hosts: []
+  # database: bbconnect_sync
+  # user:
+  # password:
 
 oracle:
   connection_string: "username/******@dbserver.example.com/PROD.example.com"
