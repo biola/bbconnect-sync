@@ -1,4 +1,6 @@
 mongodb:
+  hosts:
+  - "localhost:27017"
   database: bbconnect_sync_test
 
 bbconnect:

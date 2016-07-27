@@ -1,6 +1,5 @@
 mongodb:
-  hosts:
-  - "localhost:27017"
+  hosts: []
   # database: bbconnect_sync
   # user: bbconnect_sync
   # password:
