@@ -16,7 +16,7 @@ describe BBConnectSync::MongoDB do
       expect(results.first['title']).to eql "Chocolate Chip"
 
       # Cleanup cookies
-      db[:cookies].delete_many
+      db[:cookies].delete_many({})
     end
   end
 end

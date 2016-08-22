@@ -3,7 +3,7 @@ include ContactHelpers
 
 describe BBConnect::ContactCollection do
   let(:contact) { new_contact }
-  let(:other_contact) { BBConnect::Contact.new(7654321, 'Jane', 'Doe', 'jane.doe@example.com', '3213214321') }
+  let(:other_contact) { BBConnect::Contact.new(7654321, 'Jane', 'Doe', 'jane.doe@example.com', '3213214321', []) }
   let(:modified_contact) { contact.dup.tap { |c| c.first_name = 'Jonny' } }
 
   describe '#<<' do

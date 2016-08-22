@@ -25,12 +25,12 @@ describe BBConnectSync::Synchronizer do
     let(:file_path) { '/tmp/bbconnect_sync_test.csv' }
     let(:csv_content) do
 <<EOD
-ContactType,ReferenceCode,FirstName,LastName,EmailAddress,Terminate,Group,Group,DelGrp
-Staff,5,John,Doe,john.doe@example.com,,Employees,,
-Student,4,John,Doe,john.doe@example.com,0,Students,,
-Staff,4,John,Doe,john.doe@example.com,,Employees,,
-Student,3,William,Doe,john.doe@example.com,,Students,Students - on campus,Students - off campus
-Other,1,John,Doe,john.doe@example.com,0,,,
+ContactType,ReferenceCode,FirstName,LastName,EmailAddress,SMSPhone,Terminate,Group,Group,DelGrp
+Staff,5,John,Doe,john.doe@example.com,5629036000,,Employees,,
+Student,4,John,Doe,john.doe@example.com,5629036000,0,Students,,
+Staff,4,John,Doe,john.doe@example.com,5629036000,,Employees,,
+Student,3,William,Doe,john.doe@example.com,5629036000,,Students,Students - on campus,Students - off campus
+Other,1,John,Doe,john.doe@example.com,5629036000,0,,,
 EOD
     end
 

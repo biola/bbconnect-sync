@@ -20,8 +20,8 @@ describe BBConnect::CSV do
 
     it { expect(row['ReferenceCode']).to eql 1234567 }
     it { expect(row['Group']).to eql ['Some Group', 'Other Group'] }
-    it { expect(flat_row[6]).to eql 'Some Group' }
-    it { expect(flat_row[7]).to eql 'Other Group' }
+    it { expect(flat_row[7]).to eql 'Some Group' }
+    it { expect(flat_row[8]).to eql 'Other Group' }
 
     context 'without groups' do
       let(:groups) { [] }
@@ -56,8 +56,8 @@ describe BBConnect::CSV do
     context 'with changes' do
       let(:csv_content) do
 <<EOD
-ContactType,ReferenceCode,FirstName,LastName,EmailAddress,Terminate
-Other,1234567,John,Doe,john.doe@example.com,
+ContactType,ReferenceCode,FirstName,LastName,EmailAddress,SMSPhone,Terminate
+Other,1234567,John,Doe,john.doe@example.com,5629036000,
 EOD
       end
 

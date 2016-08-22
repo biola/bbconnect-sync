@@ -19,9 +19,10 @@ namespace :import do
       first_name = row['FIRSTNAME']
       last_name = row['LASTNAME']
       email = row['EMAILADDRESS']
+      cell = row['SMSPHONE']
       groups = row.map { |col, val| val if col == 'GROUP' }.compact & synced_groups
 
-      contact = BBConnect::Contact.new(id_number, first_name, last_name, email, groups)
+      contact = BBConnect::Contact.new(id_number, first_name, last_name, email, cell, groups)
       contact.store!
 
       bar.increment!

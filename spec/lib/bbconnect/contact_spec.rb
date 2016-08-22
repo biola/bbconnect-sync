@@ -17,8 +17,8 @@ describe BBConnect::Contact do
   end
 
   # See ContactHelpers#new_contact for default attributes
-  its(:attributes) { should eql id_number: 1234567, first_name: 'John', last_name: 'Doe', email: 'john.doe@example.com', groups: [] }
-  its(:csv_attributes) { should eql contact_type: 'Other', reference_code: 1234567, first_name: 'John', last_name: 'Doe', email_address: 'john.doe@example.com', group: [] }
+  its(:attributes) { should eql id_number: 1234567, first_name: 'John', last_name: 'Doe', email: 'john.doe@example.com', cell: '5629036000', groups: [] }
+  its(:csv_attributes) { should eql contact_type: 'Other', reference_code: 1234567, first_name: 'John', last_name: 'Doe', email_address: 'john.doe@example.com', sms_phone: '5629036000', group: [] }
 
   describe '#is?' do
     context 'when other is same contact' do

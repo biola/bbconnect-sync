@@ -1,13 +1,14 @@
 module BBConnect
   class Contact
-    attr_accessor :first_name, :last_name, :email
+    attr_accessor :first_name, :last_name, :email, :cell
     attr_writer :id_number, :groups
 
-    def initialize(id_number, first_name, last_name, email, groups = [])
+    def initialize(id_number, first_name, last_name, email, cell, groups = [])
       @id_number  = id_number.to_i
       @first_name = first_name.to_s
       @last_name  = last_name.to_s
       @email      = email.to_s
+      @cell       = cell.to_s
       @groups     = Array(groups)
     end
 
@@ -30,11 +31,11 @@ module BBConnect
     end
 
     def attributes
-      {id_number: id_number, first_name: first_name, last_name: last_name, email: email, groups: groups}
+      {id_number: id_number, first_name: first_name, last_name: last_name, email: email, cell: cell, groups: groups}
     end
 
     def csv_attributes
-      {contact_type: type, reference_code: id_number, first_name: first_name, last_name: last_name, email_address: email, group: groups}
+      {contact_type: type, reference_code: id_number, first_name: first_name, last_name: last_name, email_address: email, sms_phone: cell, group: groups}
     end
 
     # I'm preferring is? over eql? because I feel it better represents what we're checking.
@@ -58,6 +59,7 @@ module BBConnect
       other.first_name  == first_name &&
       other.last_name   == last_name &&
       other.email       == email &&
+      other.cell        == cell &&
       other.groups.sort == groups.sort
     end
 

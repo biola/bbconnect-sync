@@ -11,9 +11,10 @@ module BBConnect
       'FirstName',      # 2
       'LastName',       # 3
       'EmailAddress',   # 4
-      'Terminate',      # 5
-      'Group',          # 6
-      'DelGrp'        # 7
+      'SMSPhone',       # 5
+      'Terminate',      # 6
+      'Group',          # 7
+      'DelGrp'          # 8
     ]
 
     # NOTE: DelGrp may not allow multiple columns, which would be a pain.
@@ -111,6 +112,7 @@ module BBConnect
         'FirstName' => :first_name,
         'LastName' => :last_name,
         'EmailAddress' => :email_address,
+        'SMSPhone' => :sms_phone,
         'Terminate' => :terminate,
         'Group' => :group,
         'DelGrp' => :del_group
